@@ -51,7 +51,7 @@ PYTHON_KHDL_K23/
 
 - Hỗ trợ các phương pháp Wrapper: RFE, Forward Selection, Backward Selection.Tự động lọc ra top $K$ đặc trưng quan trọng nhất.
 
-### 3. Đa dạng mô hình & Tinh chỉnh tham số
+### 3. Đa dạng mô hình & Tinh chỉnh tham số (modeling.py)
 
 - Hỗ trợ 6 thuật toán phổ biến: Logistic Regression, SVM, Decision Tree, Random Forest, XGBoost, KNN.
 
@@ -66,4 +66,5 @@ PYTHON_KHDL_K23/
 
 
    
+
 
