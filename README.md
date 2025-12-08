@@ -30,14 +30,12 @@ PYTHON_KHDL_K23/
 ```
 
 ## CÁC BƯỚC CÀI ĐẶT:
+1. Tải cả thư mục dự án PYTHON_KHDL_K23 về máy.
+2. Mở Terminal/CMD tại thư mục dự án (VD: C:\Users\TenUsers\Downloads\PYTHON_KHDL_K23>)
 
-1. Mở Terminal/CMD tại thư mục dự án.
-
-2. Chạy lệnh cài đặt:
-   pip install -r requirements.txt
+3. Chạy lệnh cài đặt: pip install -r requirements.txt
    
-3. Chạy lệnh chương trình chính:
-   python main.py
+4. Chạy lệnh chương trình chính: python main.py
 
 ## CÁC TÍNH NĂNG NỔI BẬT:
 
@@ -68,3 +66,4 @@ PYTHON_KHDL_K23/
 
 
    
+
