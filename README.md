@@ -8,23 +8,26 @@ Mục tiêu chính: Dự đoán rủi ro (Risk Prediction) dựa trên dữ li�
 ```text
 PYTHON_KHDL_K23/
 │
-├── 📁 modules/                # MÃ NGUỒN CHÍNH (SOURCE CODE)
-│   ├── __init__.py           # Package init
-│   ├── utils.py              # Công cụ: Logger, DataLoader, Splitter
-│   ├── preprocessing.py      # Xử lý: Cleaner, Feature Engineer, Transformer
-│   ├── modeling.py           # Model: Trainer, Tuner, Feature Selector
-│   ├── evaluation.py         # Đánh giá: Evaluator, Reporter, Visualizer
-│   └── pipeline.py           # Luồng chạy chính (AutoML)
+├── 📂 CODE/                   # THƯ MỤC MÃ NGUỒN
+│   ├── 📂 modules/            # Các module chức năng
+│   │   ├── __init__.py
+│   │   ├── utils.py          # Công cụ: Logger, Loader
+│   │   ├── preprocessing.py  # Xử lý: Cleaner, Transformer
+│   │   ├── modeling.py       # Model: Trainer, Tuner, Feature Selector
+│   │   ├── evaluation.py     # Đánh giá: Evaluator, Reporter, Visualizer
+│   │   └── pipeline.py       # Luồng chạy chính (AutoML)
+│   │
+│   ├── config.py             # FILE CẤU HÌNH
+│   └── main.py               # FILE CHẠY CHÍNH
 │
-├── 📁 saved_models/           # CHỨA MODEL ĐÃ TRAIN (.pkl)
-│   ├── xgboost.pkl
-│   ├── ...
+├── 📂 DATA/                   # THƯ MỤC DỮ LIỆU
+│   ├── DATA_RISK_CLASSIFY.csv  # (File gốc)
+│   ├── final_train_data.csv    # (File sạch sau khi chạy)
+│   └── final_test_data.csv     # (File sạch sau khi chạy)
 │
-├── 📄 config.py              # FILE CẤU HÌNH 
-├── 📄 main.py                # FILE CHẠY CHÍNH
-├── 📄 DATA_CLASSIFY.csv      # Dữ liệu huấn luyện gốc
-├── 📄 transformed_train.csv  # Dữ liệu huấn luyện đã chuyển đổi
-├── 📄 transformed_test.csv   # Dữ liệu kiểm nghiệm đã chuyển đổi
+├── 📂 saved_models/           # CHỨA MODEL ĐÃ TRAIN (.pkl)
+│   └── (Sẽ tự động tạo khi chạy code)
+│
 ├── 📄 requirements.txt       # Danh sách thư viện cần thiết
 └── 📄 README.md              # Hướng dẫn sử dụng
 ```
@@ -66,6 +69,7 @@ PYTHON_KHDL_K23/
 
 
    
+
 
 
 
