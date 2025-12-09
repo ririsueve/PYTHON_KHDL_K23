@@ -43,7 +43,7 @@ PYTHON_KHDL_K23/
 
 - Data Cleaner: Tự động sửa lỗi chính tả (Fuzzy Logic), xử lý ngoại lai (Outliers), chuẩn hóa dữ liệu bị thiếu (Missing Values).
 
-- Feature Engineer: Tự động tạo đặc trưng mới (ví dụ: RISK_SCORE, FAMILY_STABILITY).
+- Feature Engineer: Tự động tạo đặc trưng mới (ví dụ: FAMILY_STABILITY).
 
 - Data Transformer: Tự động mã hóa (One-Hot, Ordinal) và chuẩn hóa số liệu (Scaling).
 
@@ -66,5 +66,6 @@ PYTHON_KHDL_K23/
 
 
    
+
 
 
