@@ -44,8 +44,8 @@ PYTHON_KHDL_K23/
 
 ## TÙY CHỈNH THAM SỐ TRUYỀN VÀO TRONG TERMINAL:
 
-Mặc định: tuning_method = "random_search", feature_method = "rfe", n_features = 15
-    python CODE/main.py
+      Mặc định: tuning_method = "random_search", feature_method = "rfe", n_features = 15
+          python CODE/main.py
     
 Có thể lựa chọn phương pháp tuning, phương pháp lựa chọn đặc trưng, số đặc trưng cần giữ bằng cách gọi:
 
@@ -96,6 +96,7 @@ Sau khi cài đặt:
 
 
    
+
 
 
 
