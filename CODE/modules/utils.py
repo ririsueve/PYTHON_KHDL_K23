@@ -1,7 +1,7 @@
 import pandas as pd
 import logging
 from sklearn.model_selection import KFold, train_test_split
-
+import os 
 class SystemLogger:
     """
     Cấu hình hệ thống log: ghi vào file và in ra màn hình.
