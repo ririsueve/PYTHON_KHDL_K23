@@ -43,7 +43,7 @@ class AutoMLPipeline:
         df_test = DataLoader(self.test_file).data
 
         target_col = "OUTCOME"
-        cols_drop = [c for c in ["ID", "POSTAL_CODE"] if c in df_train.columns]
+        cols_drop = [c for c in ["ID"] if c in df_train.columns]
 
         # Tách tập train/test cho X và y
         X_train = df_train.drop(columns=cols_drop + [target_col], errors='ignore')
