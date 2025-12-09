@@ -22,14 +22,16 @@ PYTHON_KHDL_K23/
 │
 ├── 📂 DATA/                   # THƯ MỤC DỮ LIỆU
 │   ├── DATA_RISK_CLASSIFY.csv  # (File gốc)
-│   ├── final_train_data.csv    # (File sạch sau khi chạy)
-│   └── final_test_data.csv     # (File sạch sau khi chạy)
+│   ├── final_train_data.csv    # (File huấn luyện lưu tự động sau khi chạy code)
+│   └── final_test_data.csv     # (File kiểm nghiệm lưu tự động sau khi chạy code)
 │
-├── 📂 saved_models/           # CHỨA MODEL ĐÃ TRAIN (.pkl)
+├── 📂 RESULT/           # CHỨA MODEL ĐÃ TRAIN (.pkl) và BIỂU ĐỒ CÁC MÔ HÌNH
 │   └── (Sẽ tự động tạo khi chạy code)
 │
 ├── 📄 requirements.txt       # Danh sách thư viện cần thiết
-└── 📄 README.md              # Hướng dẫn sử dụng
+├── 📄 README.md              # Hướng dẫn sử dụng
+├── 📄 automl_run.log         # File logging lưu lại quá trình chạy
+└── 📄 evaluation_report.txt  # File txt lưu lại chỉ số đánh giá mô hình
 ```
 
 ## CÁC BƯỚC CÀI ĐẶT:
@@ -39,6 +41,27 @@ PYTHON_KHDL_K23/
 3. Chạy lệnh cài đặt: pip install -r requirements.txt
    
 4. Chạy lệnh chương trình chính: python CODE/main.py
+
+## TÙY CHỈNH THAM SỐ TRUYỀN VÀO TRONG TERMINAL:
+
+Mặc định: tuning_method = "random_search", feature_method = "rfe", n_features = 15
+    python CODE/main.py
+Có thể lựa chọn phương pháp tuning, phương pháp lựa chọn đặc trưng, số đặc trưng cần giữ bằng cách gọi:
+    Mặc định code đang để là 15, muốn giảm xuống 10 thì gõ:
+        python CODE/main.py --n_features 10
+    Mặc định là rfe, muốn đổi sang forward (chọn tiến) hoặc backward (chọn lùi):
+        python CODE/main.py --feature_method forward
+    Mặc định là random_search, muốn đổi sang grid_search hoặc default:
+        python CODE/main.py --tuning grid_search hoặc
+        python CODE/main.py --tuning default
+
+
+## KẾT QUẢ CÀI ĐẶT:
+
+Sau khi cài đặt:
+- Các mô hình được lưu dưới dạng (.pkl) và các biểu đổ confusion matrix và ROC curve (.png) được lưu trong thư mục RESULT.
+- Một file logging có tên automl_run.log được lưu trong thư mục chính.
+- Một file txt lưu các chỉ số của từng mô hình có tên evaluation_report.txt được lưu trong thư mục chính.
 
 ## CÁC TÍNH NĂNG NỔI BẬT:
 

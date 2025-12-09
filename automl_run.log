@@ -1,207 +1,207 @@
-2025-12-09 19:13:26,306 - Main Pipeline - INFO - === BẮT ĐẦU PIPELINE (MODULAR VERSION) ===
-2025-12-09 19:13:26,306 - DataPreparationPipeline - INFO - ============================================================
-2025-12-09 19:13:26,307 - DataPreparationPipeline - INFO - [PIPELINE] KHỞI ĐỘNG HỆ THỐNG XỬ LÝ DỮ LIỆU
-2025-12-09 19:13:26,307 - DataPreparationPipeline - INFO - ============================================================
-2025-12-09 19:13:26,308 - DataPreparationPipeline - INFO - 1. Đang tải dữ liệu từ: DATA/data.csv
-2025-12-09 19:13:26,308 - DataLoader - INFO - Đang tải dữ liệu từ: DATA/data.csv
-2025-12-09 19:13:26,520 - DataLoader - INFO - Tải thành công. Shape: (105017, 18)
-2025-12-09 19:13:26,522 - DataPreparationPipeline - INFO - 2. Đang xử lí (Cleaner + Engineer)...
-2025-12-09 19:13:26,522 - DataPreparationPipeline - INFO - -> Kích thước ban đầu: (105017, 18) (Dòng, Cột)
-2025-12-09 19:13:26,523 - DataCleaner - INFO - =====[Cleaner] FIT: Bắt đầu quá trình học các thông số.=====
-2025-12-09 19:13:26,523 - DataCleaner - INFO - [Cleaner] FIT: Đang học các thông số.......
-2025-12-09 19:13:26,609 - DataCleaner - INFO - [Cleaner] FIT: Hoàn thành quá trình học tham số.
-2025-12-09 19:13:26,610 - DataCleaner - INFO - [Cleaner] TRANSFORM: Bắt đầu xử lý dữ liệu...
-2025-12-09 19:13:26,627 - DataCleaner - INFO - Đã xóa các cột: ['ID', 'POSTAL_CODE', 'DUIS', 'SPEEDING_VIOLATIONS']
-2025-12-09 19:13:26,745 - DataCleaner - INFO - Đã xóa 16 dòng trùng lặp.
-2025-12-09 19:13:26,748 - DataCleaner - INFO - Lấy trị tuyệt đối (Abs) cho cột số...
-2025-12-09 19:13:26,751 - DataCleaner - INFO -    - ANNUAL_MILEAGE: Sửa 3 giá trị
-2025-12-09 19:13:26,752 - DataCleaner - INFO -    - PAST_ACCIDENTS: Sửa 3 giá trị
-2025-12-09 19:13:26,752 - DataCleaner - INFO - Hoàn thành lấy trị tuyệt đối (Abs) cho cột số.
-2025-12-09 19:13:26,753 - DataCleaner - INFO - Đang chuẩn hóa dữ liệu phân loại (Standardizing)...
-2025-12-09 19:13:27,502 - DataCleaner - INFO - Hoàn thành chuẩn hóa dữ liệu phân loại (Standardizing)
-2025-12-09 19:13:27,503 - DataCleaner - INFO - Đang xử lý logic đặc thù cột AGE...
-2025-12-09 19:13:27,662 - DataCleaner - INFO - Hoàn thành xử lý cột AGE
-2025-12-09 19:13:27,663 - DataCleaner - INFO - Enforcing Numerical Ranges (Ngưỡng xóa: 5%)
-2025-12-09 19:13:27,668 - DataCleaner - INFO - Điền giá trị thiếu...
-2025-12-09 19:13:27,669 - DataCleaner - INFO - Áp dụng Median/Mode cho các ô còn sót lại.
-2025-12-09 19:13:27,777 - DataCleaner - INFO - ====[Cleaner] TRANSFORM: Hoàn thành quá trình quá xử lí dữ liệu.====
-2025-12-09 19:13:27,779 - FeatureEngineer - INFO - >>>[FeatureEngineer] TRANSFORM: Đang tạo đặc trưng tương tác...
-2025-12-09 19:13:27,847 - FeatureEngineer - INFO - -> Đã tạo feature: FAMILY_STABILITY
-2025-12-09 19:13:27,847 - DataPreparationPipeline - INFO - -> Kết quả làm sạch và tạo thêm feature mới : (105001, 15) (Dòng, Cột)
-2025-12-09 19:13:27,848 - DataPreparationPipeline - INFO - 3. Đang chia dữ liệu (Split Train/Test) với tỷ lệ Test=0.2...
-2025-12-09 19:13:27,848 - DataSplitter - INFO -  Bắt đầu chuẩn bị cắt dữ liệu (Test size: 0.2)...
-2025-12-09 19:13:27,849 - DataSplitter - INFO - [INFO] Chia theo tỷ lệ cân bằng (Stratify) cột: OUTCOME
-2025-12-09 19:13:27,969 - DataPreparationPipeline - INFO - 4. Đang chuyển đổi dữ liệu (Transforming).
-2025-12-09 19:13:27,969 - DataPreparationPipeline - INFO - -> Nguyên tắc: Học tham số từ Train, Áp dụng cho cả Train & Test.
-2025-12-09 19:13:27,969 - DataTransformer - INFO - [Transformer] FIT: Bắt đầu học tham số (Chiến lược Scale: minmax)...
-2025-12-09 19:13:27,992 - DataTransformer - INFO - ->Đã xác định 7 cột số cần chuẩn hóa.
-2025-12-09 19:13:27,992 - DataTransformer - INFO - Học ngưỡng xử lý ngoại lai (Strategy mặc định: capping)...
-2025-12-09 19:13:27,997 - DataTransformer - INFO -       + Cột 'CREDIT_SCORE': Capping Range [0.25 - 0.90]
-2025-12-09 19:13:27,997 - DataTransformer - INFO - Học One-Hot Encoding cho: ['TYPE_OF_VEHICLE']
-2025-12-09 19:13:28,017 - DataTransformer - INFO - Đang chuẩn bị dữ liệu tạm để học Scaler...
-2025-12-09 19:13:28,268 - DataTransformer - INFO - Học Scaler cho các cột số...
-2025-12-09 19:13:28,276 - DataTransformer - INFO - Cột 'CREDIT_SCORE': Chọn MinMaxScaler 
-2025-12-09 19:13:28,281 - DataTransformer - INFO - Cột 'VEHICLE_OWNERSHIP': Chọn MinMaxScaler 
-2025-12-09 19:13:28,286 - DataTransformer - INFO - Cột 'MARRIED': Chọn MinMaxScaler 
-2025-12-09 19:13:28,291 - DataTransformer - INFO - Cột 'CHILDREN': Chọn MinMaxScaler 
-2025-12-09 19:13:28,298 - DataTransformer - INFO - Cột 'ANNUAL_MILEAGE': Chọn MinMaxScaler 
-2025-12-09 19:13:28,304 - DataTransformer - INFO - Cột 'PAST_ACCIDENTS': Chọn MinMaxScaler 
-2025-12-09 19:13:28,313 - DataTransformer - INFO - Cột 'FAMILY_STABILITY': Chọn MinMaxScaler 
-2025-12-09 19:13:28,313 - DataTransformer - INFO - Cột thứ tự/bin (6 cột): Dùng MinMaxScaler.
-2025-12-09 19:13:28,331 - DataTransformer - INFO - >>> [Transformer] FIT: Hoàn thành.
-2025-12-09 19:13:28,344 - DataTransformer - INFO - [Transformer] TRANSFORM: Đang biến đổi dữ liệu thực tế...
-2025-12-09 19:13:28,365 - DataTransformer - INFO - Áp dụng xử lý ngoại lai (Outlier Handling)...
-2025-12-09 19:13:28,366 - DataTransformer - INFO - Capping 'CREDIT_SCORE': Sửa 1680 giá trị.
-2025-12-09 19:13:28,384 - DataTransformer - INFO - Log Transform: 'ANNUAL_MILEAGE'
-2025-12-09 19:13:28,392 - DataTransformer - INFO - Log Transform: 'PAST_ACCIDENTS'
-2025-12-09 19:13:28,400 - DataTransformer - INFO - Log Transform: 'FAMILY_STABILITY'
-2025-12-09 19:13:28,400 - DataTransformer - INFO - Áp dụng Encoding (Ordinal & One-Hot)...
-2025-12-09 19:13:28,567 - DataTransformer - INFO - -> Áp dụng Scaling (Chuẩn hóa)...
-2025-12-09 19:13:28,596 - DataTransformer - INFO - [Transformer] TRANSFORM: Hoàn tất.
-2025-12-09 19:13:28,596 - DataTransformer - INFO - [Transformer] TRANSFORM: Đang biến đổi dữ liệu thực tế...
-2025-12-09 19:13:28,601 - DataTransformer - INFO - Áp dụng xử lý ngoại lai (Outlier Handling)...
-2025-12-09 19:13:28,602 - DataTransformer - INFO - Capping 'CREDIT_SCORE': Sửa 436 giá trị.
-2025-12-09 19:13:28,605 - DataTransformer - INFO - Log Transform: 'ANNUAL_MILEAGE'
-2025-12-09 19:13:28,607 - DataTransformer - INFO - Log Transform: 'PAST_ACCIDENTS'
-2025-12-09 19:13:28,612 - DataTransformer - INFO - Log Transform: 'FAMILY_STABILITY'
-2025-12-09 19:13:28,613 - DataTransformer - INFO - Áp dụng Encoding (Ordinal & One-Hot)...
-2025-12-09 19:13:28,680 - DataTransformer - INFO - -> Áp dụng Scaling (Chuẩn hóa)...
-2025-12-09 19:13:28,704 - DataTransformer - INFO - [Transformer] TRANSFORM: Hoàn tất.
-2025-12-09 19:13:28,704 - DataPreparationPipeline - INFO - ============================================================
-2025-12-09 19:13:28,705 - DataPreparationPipeline - INFO - [PIPELINE] HOÀN TẤT!
-2025-12-09 19:13:28,705 - DataPreparationPipeline - INFO -    Train Set: (84000, 18)
-2025-12-09 19:13:28,706 - DataPreparationPipeline - INFO -    Test Set:  (21001, 18)
-2025-12-09 19:13:28,706 - DataPreparationPipeline - INFO - ============================================================
-2025-12-09 19:13:30,116 - AutoML Pipeline - INFO - === BẮT ĐẦU CHẠY AUTOML PIPELINE (MULTI-MODEL) ===
-2025-12-09 19:13:30,116 - AutoML Pipeline - INFO - Cấu hình: Tuning=random_search | Feature=rfe (15)
-2025-12-09 19:13:30,116 - DataLoader - INFO - Đang tải dữ liệu từ: DATA/final_train_data.csv
-2025-12-09 19:13:30,312 - DataLoader - INFO - Tải thành công. Shape: (84000, 18)
-2025-12-09 19:13:30,313 - DataLoader - INFO - Đang tải dữ liệu từ: DATA/final_test_data.csv
-2025-12-09 19:13:30,405 - DataLoader - INFO - Tải thành công. Shape: (21001, 18)
-2025-12-09 19:13:30,412 - AutoML Pipeline - INFO - >>> STEP: FEATURE SELECTION (RFE)
-2025-12-09 19:13:30,413 - FeatureWrapperSelector - INFO - === Bắt đầu Feature Selection (Method: RFE) ===
-2025-12-09 19:13:30,413 - FeatureWrapperSelector - INFO - Số lượng features ban đầu: 17
-2025-12-09 19:13:30,413 - FeatureWrapperSelector - INFO - Số lượng features muốn giữ: 15
-2025-12-09 19:13:30,414 - FeatureWrapperSelector - INFO - Đang chạy thuật toán lựa chọn đặc trưng...
-2025-12-09 19:13:59,956 - FeatureWrapperSelector - INFO - Đã chọn được 15 features: ['AGE', 'GENDER', 'DRIVING_EXPERIENCE', 'EDUCATION', 'INCOME', 'CREDIT_SCORE', 'VEHICLE_YEAR', 'MARRIED', 'CHILDREN', 'ANNUAL_MILEAGE', 'PAST_ACCIDENTS', 'FAMILY_STABILITY', 'TYPE_OF_VEHICLE_hatchback', 'TYPE_OF_VEHICLE_sedan', 'TYPE_OF_VEHICLE_sports car']
-2025-12-09 19:14:00,004 - AutoML Pipeline - INFO - Danh sách mô hình sẽ chạy: ['logistic_regression', 'svm', 'decision_tree', 'random_forest', 'xgboost', 'knn']
-2025-12-09 19:14:00,004 - AutoML Pipeline - INFO - 
+2025-12-09 20:23:51,251 - Main Pipeline - INFO - === BẮT ĐẦU PIPELINE (MODULAR VERSION) ===
+2025-12-09 20:23:51,252 - DataPreparationPipeline - INFO - ============================================================
+2025-12-09 20:23:51,252 - DataPreparationPipeline - INFO - [PIPELINE] KHỞI ĐỘNG HỆ THỐNG XỬ LÝ DỮ LIỆU
+2025-12-09 20:23:51,253 - DataPreparationPipeline - INFO - ============================================================
+2025-12-09 20:23:51,253 - DataPreparationPipeline - INFO - 1. Đang tải dữ liệu từ: DATA/data.csv
+2025-12-09 20:23:51,254 - DataLoader - INFO - Đang tải dữ liệu từ: DATA/data.csv
+2025-12-09 20:23:51,474 - DataLoader - INFO - Tải thành công. Shape: (105017, 18)
+2025-12-09 20:23:51,476 - DataPreparationPipeline - INFO - 2. Đang xử lí (Cleaner + Engineer)...
+2025-12-09 20:23:51,476 - DataPreparationPipeline - INFO - -> Kích thước ban đầu: (105017, 18) (Dòng, Cột)
+2025-12-09 20:23:51,476 - DataCleaner - INFO - =====[Cleaner] FIT: Bắt đầu quá trình học các thông số.=====
+2025-12-09 20:23:51,477 - DataCleaner - INFO - [Cleaner] FIT: Đang học các thông số.......
+2025-12-09 20:23:51,551 - DataCleaner - INFO - [Cleaner] FIT: Hoàn thành quá trình học tham số.
+2025-12-09 20:23:51,551 - DataCleaner - INFO - [Cleaner] TRANSFORM: Bắt đầu xử lý dữ liệu...
+2025-12-09 20:23:51,565 - DataCleaner - INFO - Đã xóa các cột: ['ID', 'POSTAL_CODE', 'DUIS', 'SPEEDING_VIOLATIONS']
+2025-12-09 20:23:51,668 - DataCleaner - INFO - Đã xóa 16 dòng trùng lặp.
+2025-12-09 20:23:51,670 - DataCleaner - INFO - Lấy trị tuyệt đối (Abs) cho cột số...
+2025-12-09 20:23:51,673 - DataCleaner - INFO -    - ANNUAL_MILEAGE: Sửa 3 giá trị
+2025-12-09 20:23:51,675 - DataCleaner - INFO -    - PAST_ACCIDENTS: Sửa 3 giá trị
+2025-12-09 20:23:51,675 - DataCleaner - INFO - Hoàn thành lấy trị tuyệt đối (Abs) cho cột số.
+2025-12-09 20:23:51,676 - DataCleaner - INFO - Đang chuẩn hóa dữ liệu phân loại (Standardizing)...
+2025-12-09 20:23:52,445 - DataCleaner - INFO - Hoàn thành chuẩn hóa dữ liệu phân loại (Standardizing)
+2025-12-09 20:23:52,446 - DataCleaner - INFO - Đang xử lý logic đặc thù cột AGE...
+2025-12-09 20:23:52,597 - DataCleaner - INFO - Hoàn thành xử lý cột AGE
+2025-12-09 20:23:52,598 - DataCleaner - INFO - Enforcing Numerical Ranges (Ngưỡng xóa: 5%)
+2025-12-09 20:23:52,601 - DataCleaner - INFO - Điền giá trị thiếu...
+2025-12-09 20:23:52,602 - DataCleaner - INFO - Áp dụng Median/Mode cho các ô còn sót lại.
+2025-12-09 20:23:52,698 - DataCleaner - INFO - ====[Cleaner] TRANSFORM: Hoàn thành quá trình quá xử lí dữ liệu.====
+2025-12-09 20:23:52,699 - FeatureEngineer - INFO - >>>[FeatureEngineer] TRANSFORM: Đang tạo đặc trưng tương tác...
+2025-12-09 20:23:52,771 - FeatureEngineer - INFO - -> Đã tạo feature: FAMILY_STABILITY
+2025-12-09 20:23:52,772 - DataPreparationPipeline - INFO - -> Kết quả làm sạch và tạo thêm feature mới : (105001, 15) (Dòng, Cột)
+2025-12-09 20:23:52,772 - DataPreparationPipeline - INFO - 3. Đang chia dữ liệu (Split Train/Test) với tỷ lệ Test=0.2...
+2025-12-09 20:23:52,773 - DataSplitter - INFO -  Bắt đầu chuẩn bị cắt dữ liệu (Test size: 0.2)...
+2025-12-09 20:23:52,773 - DataSplitter - INFO - [INFO] Chia theo tỷ lệ cân bằng (Stratify) cột: OUTCOME
+2025-12-09 20:23:52,867 - DataPreparationPipeline - INFO - 4. Đang chuyển đổi dữ liệu (Transforming).
+2025-12-09 20:23:52,868 - DataPreparationPipeline - INFO - -> Nguyên tắc: Học tham số từ Train, Áp dụng cho cả Train & Test.
+2025-12-09 20:23:52,868 - DataTransformer - INFO - [Transformer] FIT: Bắt đầu học tham số (Chiến lược Scale: minmax)...
+2025-12-09 20:23:52,889 - DataTransformer - INFO - ->Đã xác định 7 cột số cần chuẩn hóa.
+2025-12-09 20:23:52,890 - DataTransformer - INFO - Học ngưỡng xử lý ngoại lai (Strategy mặc định: capping)...
+2025-12-09 20:23:52,894 - DataTransformer - INFO -       + Cột 'CREDIT_SCORE': Capping Range [0.25 - 0.90]
+2025-12-09 20:23:52,895 - DataTransformer - INFO - Học One-Hot Encoding cho: ['TYPE_OF_VEHICLE']
+2025-12-09 20:23:52,926 - DataTransformer - INFO - Đang chuẩn bị dữ liệu tạm để học Scaler...
+2025-12-09 20:23:53,131 - DataTransformer - INFO - Học Scaler cho các cột số...
+2025-12-09 20:23:53,138 - DataTransformer - INFO - Cột 'CREDIT_SCORE': Chọn MinMaxScaler 
+2025-12-09 20:23:53,143 - DataTransformer - INFO - Cột 'VEHICLE_OWNERSHIP': Chọn MinMaxScaler 
+2025-12-09 20:23:53,151 - DataTransformer - INFO - Cột 'MARRIED': Chọn MinMaxScaler 
+2025-12-09 20:23:53,160 - DataTransformer - INFO - Cột 'CHILDREN': Chọn MinMaxScaler 
+2025-12-09 20:23:53,173 - DataTransformer - INFO - Cột 'ANNUAL_MILEAGE': Chọn MinMaxScaler 
+2025-12-09 20:23:53,182 - DataTransformer - INFO - Cột 'PAST_ACCIDENTS': Chọn MinMaxScaler 
+2025-12-09 20:23:53,189 - DataTransformer - INFO - Cột 'FAMILY_STABILITY': Chọn MinMaxScaler 
+2025-12-09 20:23:53,190 - DataTransformer - INFO - Cột thứ tự/bin (6 cột): Dùng MinMaxScaler.
+2025-12-09 20:23:53,206 - DataTransformer - INFO - >>> [Transformer] FIT: Hoàn thành.
+2025-12-09 20:23:53,218 - DataTransformer - INFO - [Transformer] TRANSFORM: Đang biến đổi dữ liệu thực tế...
+2025-12-09 20:23:53,235 - DataTransformer - INFO - Áp dụng xử lý ngoại lai (Outlier Handling)...
+2025-12-09 20:23:53,236 - DataTransformer - INFO - Capping 'CREDIT_SCORE': Sửa 1680 giá trị.
+2025-12-09 20:23:53,246 - DataTransformer - INFO - Log Transform: 'ANNUAL_MILEAGE'
+2025-12-09 20:23:53,251 - DataTransformer - INFO - Log Transform: 'PAST_ACCIDENTS'
+2025-12-09 20:23:53,256 - DataTransformer - INFO - Log Transform: 'FAMILY_STABILITY'
+2025-12-09 20:23:53,257 - DataTransformer - INFO - Áp dụng Encoding (Ordinal & One-Hot)...
+2025-12-09 20:23:53,400 - DataTransformer - INFO - -> Áp dụng Scaling (Chuẩn hóa)...
+2025-12-09 20:23:53,423 - DataTransformer - INFO - [Transformer] TRANSFORM: Hoàn tất.
+2025-12-09 20:23:53,424 - DataTransformer - INFO - [Transformer] TRANSFORM: Đang biến đổi dữ liệu thực tế...
+2025-12-09 20:23:53,428 - DataTransformer - INFO - Áp dụng xử lý ngoại lai (Outlier Handling)...
+2025-12-09 20:23:53,429 - DataTransformer - INFO - Capping 'CREDIT_SCORE': Sửa 436 giá trị.
+2025-12-09 20:23:53,433 - DataTransformer - INFO - Log Transform: 'ANNUAL_MILEAGE'
+2025-12-09 20:23:53,435 - DataTransformer - INFO - Log Transform: 'PAST_ACCIDENTS'
+2025-12-09 20:23:53,438 - DataTransformer - INFO - Log Transform: 'FAMILY_STABILITY'
+2025-12-09 20:23:53,438 - DataTransformer - INFO - Áp dụng Encoding (Ordinal & One-Hot)...
+2025-12-09 20:23:53,488 - DataTransformer - INFO - -> Áp dụng Scaling (Chuẩn hóa)...
+2025-12-09 20:23:53,507 - DataTransformer - INFO - [Transformer] TRANSFORM: Hoàn tất.
+2025-12-09 20:23:53,507 - DataPreparationPipeline - INFO - ============================================================
+2025-12-09 20:23:53,508 - DataPreparationPipeline - INFO - [PIPELINE] HOÀN TẤT!
+2025-12-09 20:23:53,508 - DataPreparationPipeline - INFO -    Train Set: (84000, 18)
+2025-12-09 20:23:53,508 - DataPreparationPipeline - INFO -    Test Set:  (21001, 18)
+2025-12-09 20:23:53,508 - DataPreparationPipeline - INFO - ============================================================
+2025-12-09 20:23:54,994 - AutoML Pipeline - INFO - === BẮT ĐẦU CHẠY AUTOML PIPELINE (MULTI-MODEL) ===
+2025-12-09 20:23:54,994 - AutoML Pipeline - INFO - Cấu hình: Tuning=random_search | Feature=rfe (15)
+2025-12-09 20:23:54,994 - DataLoader - INFO - Đang tải dữ liệu từ: DATA/final_train_data.csv
+2025-12-09 20:23:55,230 - DataLoader - INFO - Tải thành công. Shape: (84000, 18)
+2025-12-09 20:23:55,230 - DataLoader - INFO - Đang tải dữ liệu từ: DATA/final_test_data.csv
+2025-12-09 20:23:55,326 - DataLoader - INFO - Tải thành công. Shape: (21001, 18)
+2025-12-09 20:23:55,335 - AutoML Pipeline - INFO - >>> STEP: FEATURE SELECTION (RFE)
+2025-12-09 20:23:55,336 - FeatureWrapperSelector - INFO - === Bắt đầu Feature Selection (Method: RFE) ===
+2025-12-09 20:23:55,336 - FeatureWrapperSelector - INFO - Số lượng features ban đầu: 17
+2025-12-09 20:23:55,337 - FeatureWrapperSelector - INFO - Số lượng features muốn giữ: 15
+2025-12-09 20:23:55,337 - FeatureWrapperSelector - INFO - Đang chạy thuật toán lựa chọn đặc trưng...
+2025-12-09 20:24:52,353 - FeatureWrapperSelector - INFO - Đã chọn được 15 features: ['AGE', 'GENDER', 'DRIVING_EXPERIENCE', 'EDUCATION', 'INCOME', 'CREDIT_SCORE', 'VEHICLE_YEAR', 'MARRIED', 'CHILDREN', 'ANNUAL_MILEAGE', 'PAST_ACCIDENTS', 'FAMILY_STABILITY', 'TYPE_OF_VEHICLE_hatchback', 'TYPE_OF_VEHICLE_sedan', 'TYPE_OF_VEHICLE_sports car']
+2025-12-09 20:24:52,423 - AutoML Pipeline - INFO - Danh sách mô hình sẽ chạy: ['logistic_regression', 'svm', 'decision_tree', 'random_forest', 'xgboost', 'knn']
+2025-12-09 20:24:52,424 - AutoML Pipeline - INFO - 
 ==================== PROCESSING MODEL: LOGISTIC_REGRESSION ====================
-2025-12-09 19:14:00,008 - DataSplitter - INFO - Bắt đầu chia dữ liệu với KFold (n_splits=3).
-2025-12-09 19:14:00,017 - DataSplitter - INFO - Đã chia thành 3 folds thành công.
-2025-12-09 19:14:00,017 - HyperparameterTuning - INFO - === Bắt đầu tuning cho logistic_regression bằng random_search ===
-2025-12-09 19:14:00,018 - HyperparameterTuning - INFO - Metric tối ưu: f1
-2025-12-09 19:14:00,018 - HyperparameterTuning - INFO - Tạo lưới các siêu tham số cho mô hình: logistic_regression
-2025-12-09 19:14:00,018 - HyperparameterTuning - INFO - Đang chạy fit()... Quá trình này có thể mất chút thời gian, vui lòng chờ...
-2025-12-09 19:14:06,324 - HyperparameterTuning - INFO - Tuning hoàn tất cho logistic_regression.
-2025-12-09 19:14:06,324 - HyperparameterTuning - INFO - Điểm tốt nhất (f1): 0.7938
-2025-12-09 19:14:06,325 - HyperparameterTuning - INFO - Bộ tham số tốt nhất: {'solver': 'lbfgs', 'penalty': 'l2', 'C': 10}
-2025-12-09 19:14:06,325 - ModelTrainer - INFO - Đang khởi tạo mô hình: logistic_regression
-2025-12-09 19:14:06,552 - ModelTrainer - INFO - Đã lưu model: RESULT\logistic_regression.pkl
-2025-12-09 19:14:06,555 - ModelEvaluator - INFO - Tính toán metrics...
-2025-12-09 19:14:06,581 - AutoML Pipeline - INFO - Kết quả logistic_regression: {'mean_accuracy': np.float64(0.786629208132946), 'mean_precision': np.float64(0.8341490963855421), 'mean_recall': np.float64(0.7652188930144201), 'mean_f1_score': np.float64(0.7981986039180364)}
-2025-12-09 19:14:06,581 - Visualizer - INFO - Đang vẽ Confusion Matrix
-2025-12-09 19:14:06,887 - Visualizer - INFO - Đã lưu ảnh confusion_matrix_logistic_regression.png
-2025-12-09 19:14:06,900 - Visualizer - INFO - Đang vẽ ROC Curve
-2025-12-09 19:14:07,081 - Visualizer - INFO - Đã lưu ảnh roc_curve_logistic_regression.png
-2025-12-09 19:14:07,088 - AutoML Pipeline - INFO - 
+2025-12-09 20:24:52,434 - DataSplitter - INFO - Bắt đầu chia dữ liệu với KFold (n_splits=3).
+2025-12-09 20:24:52,457 - DataSplitter - INFO - Đã chia thành 3 folds thành công.
+2025-12-09 20:24:52,460 - HyperparameterTuning - INFO - === Bắt đầu tuning cho logistic_regression bằng random_search ===
+2025-12-09 20:24:52,464 - HyperparameterTuning - INFO - Metric tối ưu: f1
+2025-12-09 20:24:52,467 - HyperparameterTuning - INFO - Tạo lưới các siêu tham số cho mô hình: logistic_regression
+2025-12-09 20:24:52,469 - HyperparameterTuning - INFO - Đang chạy fit()... Quá trình này có thể mất chút thời gian, vui lòng chờ...
+2025-12-09 20:25:07,828 - HyperparameterTuning - INFO - Tuning hoàn tất cho logistic_regression.
+2025-12-09 20:25:07,829 - HyperparameterTuning - INFO - Điểm tốt nhất (f1): 0.7938
+2025-12-09 20:25:07,829 - HyperparameterTuning - INFO - Bộ tham số tốt nhất: {'solver': 'lbfgs', 'penalty': 'l2', 'C': 10}
+2025-12-09 20:25:07,830 - ModelTrainer - INFO - Đang khởi tạo mô hình: logistic_regression
+2025-12-09 20:25:08,338 - ModelTrainer - INFO - Đã lưu model: RESULT\logistic_regression.pkl
+2025-12-09 20:25:08,344 - ModelEvaluator - INFO - Tính toán metrics...
+2025-12-09 20:25:08,396 - AutoML Pipeline - INFO - Kết quả logistic_regression: {'mean_accuracy': np.float64(0.786629208132946), 'mean_precision': np.float64(0.8341490963855421), 'mean_recall': np.float64(0.7652188930144201), 'mean_f1_score': np.float64(0.7981986039180364)}
+2025-12-09 20:25:08,397 - Visualizer - INFO - Đang vẽ Confusion Matrix
+2025-12-09 20:25:09,355 - Visualizer - INFO - Đã lưu ảnh confusion_matrix_logistic_regression.png
+2025-12-09 20:25:09,385 - Visualizer - INFO - Đang vẽ ROC Curve
+2025-12-09 20:25:09,876 - Visualizer - INFO - Đã lưu ảnh roc_curve_logistic_regression.png
+2025-12-09 20:25:09,905 - AutoML Pipeline - INFO - 
 ==================== PROCESSING MODEL: SVM ====================
-2025-12-09 19:14:07,093 - DataSplitter - INFO - Bắt đầu chia dữ liệu với KFold (n_splits=3).
-2025-12-09 19:14:07,102 - DataSplitter - INFO - Đã chia thành 3 folds thành công.
-2025-12-09 19:14:07,103 - HyperparameterTuning - INFO - === Bắt đầu tuning cho svm bằng random_search ===
-2025-12-09 19:14:07,103 - HyperparameterTuning - INFO - Metric tối ưu: f1
-2025-12-09 19:14:07,104 - HyperparameterTuning - INFO - Tạo lưới các siêu tham số cho mô hình: svm
-2025-12-09 19:14:07,104 - HyperparameterTuning - INFO - Đang chạy fit()... Quá trình này có thể mất chút thời gian, vui lòng chờ...
-2025-12-09 19:14:34,921 - HyperparameterTuning - INFO - Tuning hoàn tất cho svm.
-2025-12-09 19:14:34,921 - HyperparameterTuning - INFO - Điểm tốt nhất (f1): 0.7937
-2025-12-09 19:14:34,921 - HyperparameterTuning - INFO - Bộ tham số tốt nhất: {'penalty': 'l1', 'C': 0.1}
-2025-12-09 19:14:34,923 - ModelTrainer - INFO - Đang khởi tạo mô hình: svm
-2025-12-09 19:14:37,841 - ModelTrainer - INFO - Đã lưu model: RESULT\svm.pkl
-2025-12-09 19:14:37,845 - ModelEvaluator - INFO - Tính toán metrics...
-2025-12-09 19:14:37,859 - AutoML Pipeline - INFO - Kết quả svm: {'mean_accuracy': np.float64(0.7864387410123328), 'mean_precision': np.float64(0.8340866290018832), 'mean_recall': np.float64(0.7648734996977808), 'mean_f1_score': np.float64(0.7979820728796)}
-2025-12-09 19:14:37,860 - Visualizer - INFO - Đang vẽ Confusion Matrix
-2025-12-09 19:14:38,081 - Visualizer - INFO - Đã lưu ảnh confusion_matrix_svm.png
-2025-12-09 19:14:38,088 - Visualizer - INFO - Đang vẽ ROC Curve
-2025-12-09 19:14:38,272 - Visualizer - INFO - Đã lưu ảnh roc_curve_svm.png
-2025-12-09 19:14:38,279 - AutoML Pipeline - INFO - 
+2025-12-09 20:25:09,914 - DataSplitter - INFO - Bắt đầu chia dữ liệu với KFold (n_splits=3).
+2025-12-09 20:25:09,936 - DataSplitter - INFO - Đã chia thành 3 folds thành công.
+2025-12-09 20:25:09,938 - HyperparameterTuning - INFO - === Bắt đầu tuning cho svm bằng random_search ===
+2025-12-09 20:25:09,941 - HyperparameterTuning - INFO - Metric tối ưu: f1
+2025-12-09 20:25:09,942 - HyperparameterTuning - INFO - Tạo lưới các siêu tham số cho mô hình: svm
+2025-12-09 20:25:09,943 - HyperparameterTuning - INFO - Đang chạy fit()... Quá trình này có thể mất chút thời gian, vui lòng chờ...
+2025-12-09 20:25:50,666 - HyperparameterTuning - INFO - Tuning hoàn tất cho svm.
+2025-12-09 20:25:50,667 - HyperparameterTuning - INFO - Điểm tốt nhất (f1): 0.7937
+2025-12-09 20:25:50,667 - HyperparameterTuning - INFO - Bộ tham số tốt nhất: {'penalty': 'l1', 'C': 0.1}
+2025-12-09 20:25:50,668 - ModelTrainer - INFO - Đang khởi tạo mô hình: svm
+2025-12-09 20:25:58,200 - ModelTrainer - INFO - Đã lưu model: RESULT\svm.pkl
+2025-12-09 20:25:58,205 - ModelEvaluator - INFO - Tính toán metrics...
+2025-12-09 20:25:58,252 - AutoML Pipeline - INFO - Kết quả svm: {'mean_accuracy': np.float64(0.7864387410123328), 'mean_precision': np.float64(0.8340866290018832), 'mean_recall': np.float64(0.7648734996977808), 'mean_f1_score': np.float64(0.7979820728796)}
+2025-12-09 20:25:58,253 - Visualizer - INFO - Đang vẽ Confusion Matrix
+2025-12-09 20:25:58,915 - Visualizer - INFO - Đã lưu ảnh confusion_matrix_svm.png
+2025-12-09 20:25:58,957 - Visualizer - INFO - Đang vẽ ROC Curve
+2025-12-09 20:25:59,548 - Visualizer - INFO - Đã lưu ảnh roc_curve_svm.png
+2025-12-09 20:25:59,603 - AutoML Pipeline - INFO - 
 ==================== PROCESSING MODEL: DECISION_TREE ====================
-2025-12-09 19:14:38,283 - DataSplitter - INFO - Bắt đầu chia dữ liệu với KFold (n_splits=3).
-2025-12-09 19:14:38,296 - DataSplitter - INFO - Đã chia thành 3 folds thành công.
-2025-12-09 19:14:38,296 - HyperparameterTuning - INFO - === Bắt đầu tuning cho decision_tree bằng random_search ===
-2025-12-09 19:14:38,297 - HyperparameterTuning - INFO - Metric tối ưu: f1
-2025-12-09 19:14:38,297 - HyperparameterTuning - INFO - Tạo lưới các siêu tham số cho mô hình: decision_tree
-2025-12-09 19:14:38,298 - HyperparameterTuning - INFO - Đang chạy fit()... Quá trình này có thể mất chút thời gian, vui lòng chờ...
-2025-12-09 19:14:45,041 - HyperparameterTuning - INFO - Tuning hoàn tất cho decision_tree.
-2025-12-09 19:14:45,041 - HyperparameterTuning - INFO - Điểm tốt nhất (f1): 0.7982
-2025-12-09 19:14:45,042 - HyperparameterTuning - INFO - Bộ tham số tốt nhất: {'min_samples_split': 2, 'min_samples_leaf': 1, 'max_depth': 10, 'criterion': 'entropy'}
-2025-12-09 19:14:45,042 - ModelTrainer - INFO - Đang khởi tạo mô hình: decision_tree
-2025-12-09 19:14:45,345 - ModelTrainer - INFO - Đã lưu model: RESULT\decision_tree.pkl
-2025-12-09 19:14:45,350 - ModelEvaluator - INFO - Tính toán metrics...
-2025-12-09 19:14:45,368 - AutoML Pipeline - INFO - Kết quả decision_tree: {'mean_accuracy': np.float64(0.8115804009332889), 'mean_precision': np.float64(0.9701529353724716), 'mean_recall': np.float64(0.6792159571712287), 'mean_f1_score': np.float64(0.799024836202956)}
-2025-12-09 19:14:45,369 - Visualizer - INFO - Đang vẽ Confusion Matrix
-2025-12-09 19:14:45,588 - Visualizer - INFO - Đã lưu ảnh confusion_matrix_decision_tree.png
-2025-12-09 19:14:45,597 - Visualizer - INFO - Đang vẽ ROC Curve
-2025-12-09 19:14:45,787 - Visualizer - INFO - Đã lưu ảnh roc_curve_decision_tree.png
-2025-12-09 19:14:45,800 - AutoML Pipeline - INFO - 
+2025-12-09 20:25:59,614 - DataSplitter - INFO - Bắt đầu chia dữ liệu với KFold (n_splits=3).
+2025-12-09 20:25:59,632 - DataSplitter - INFO - Đã chia thành 3 folds thành công.
+2025-12-09 20:25:59,633 - HyperparameterTuning - INFO - === Bắt đầu tuning cho decision_tree bằng random_search ===
+2025-12-09 20:25:59,633 - HyperparameterTuning - INFO - Metric tối ưu: f1
+2025-12-09 20:25:59,635 - HyperparameterTuning - INFO - Tạo lưới các siêu tham số cho mô hình: decision_tree
+2025-12-09 20:25:59,635 - HyperparameterTuning - INFO - Đang chạy fit()... Quá trình này có thể mất chút thời gian, vui lòng chờ...
+2025-12-09 20:26:16,415 - HyperparameterTuning - INFO - Tuning hoàn tất cho decision_tree.
+2025-12-09 20:26:16,416 - HyperparameterTuning - INFO - Điểm tốt nhất (f1): 0.7982
+2025-12-09 20:26:16,416 - HyperparameterTuning - INFO - Bộ tham số tốt nhất: {'min_samples_split': 2, 'min_samples_leaf': 1, 'max_depth': 10, 'criterion': 'entropy'}
+2025-12-09 20:26:16,417 - ModelTrainer - INFO - Đang khởi tạo mô hình: decision_tree
+2025-12-09 20:26:17,185 - ModelTrainer - INFO - Đã lưu model: RESULT\decision_tree.pkl
+2025-12-09 20:26:17,195 - ModelEvaluator - INFO - Tính toán metrics...
+2025-12-09 20:26:17,242 - AutoML Pipeline - INFO - Kết quả decision_tree: {'mean_accuracy': np.float64(0.8115804009332889), 'mean_precision': np.float64(0.9701529353724716), 'mean_recall': np.float64(0.6792159571712287), 'mean_f1_score': np.float64(0.799024836202956)}
+2025-12-09 20:26:17,243 - Visualizer - INFO - Đang vẽ Confusion Matrix
+2025-12-09 20:26:17,950 - Visualizer - INFO - Đã lưu ảnh confusion_matrix_decision_tree.png
+2025-12-09 20:26:17,970 - Visualizer - INFO - Đang vẽ ROC Curve
+2025-12-09 20:26:18,449 - Visualizer - INFO - Đã lưu ảnh roc_curve_decision_tree.png
+2025-12-09 20:26:18,476 - AutoML Pipeline - INFO - 
 ==================== PROCESSING MODEL: RANDOM_FOREST ====================
-2025-12-09 19:14:45,805 - DataSplitter - INFO - Bắt đầu chia dữ liệu với KFold (n_splits=3).
-2025-12-09 19:14:45,816 - DataSplitter - INFO - Đã chia thành 3 folds thành công.
-2025-12-09 19:14:45,816 - HyperparameterTuning - INFO - === Bắt đầu tuning cho random_forest bằng random_search ===
-2025-12-09 19:14:45,816 - HyperparameterTuning - INFO - Metric tối ưu: f1
-2025-12-09 19:14:45,817 - HyperparameterTuning - INFO - Tạo lưới các siêu tham số cho mô hình: random_forest
-2025-12-09 19:14:45,817 - HyperparameterTuning - INFO - Đang chạy fit()... Quá trình này có thể mất chút thời gian, vui lòng chờ...
-2025-12-09 19:16:39,203 - HyperparameterTuning - INFO - Tuning hoàn tất cho random_forest.
-2025-12-09 19:16:39,204 - HyperparameterTuning - INFO - Điểm tốt nhất (f1): 0.7985
-2025-12-09 19:16:39,205 - HyperparameterTuning - INFO - Bộ tham số tốt nhất: {'n_estimators': 100, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_depth': 10}
-2025-12-09 19:16:39,206 - ModelTrainer - INFO - Đang khởi tạo mô hình: random_forest
-2025-12-09 19:16:48,931 - ModelTrainer - INFO - Đã lưu model: RESULT\random_forest.pkl
-2025-12-09 19:16:49,206 - ModelEvaluator - INFO - Tính toán metrics...
-2025-12-09 19:16:49,228 - AutoML Pipeline - INFO - Kết quả random_forest: {'mean_accuracy': np.float64(0.8118184848340555), 'mean_precision': np.float64(0.9671769748928353), 'mean_recall': np.float64(0.6818927553751835), 'mean_f1_score': np.float64(0.7998581991289375)}
-2025-12-09 19:16:49,229 - Visualizer - INFO - Đang vẽ Confusion Matrix
-2025-12-09 19:16:49,439 - Visualizer - INFO - Đã lưu ảnh confusion_matrix_random_forest.png
-2025-12-09 19:16:49,447 - Visualizer - INFO - Đang vẽ ROC Curve
-2025-12-09 19:16:49,969 - Visualizer - INFO - Đã lưu ảnh roc_curve_random_forest.png
-2025-12-09 19:16:49,983 - AutoML Pipeline - INFO - 
+2025-12-09 20:26:18,486 - DataSplitter - INFO - Bắt đầu chia dữ liệu với KFold (n_splits=3).
+2025-12-09 20:26:18,504 - DataSplitter - INFO - Đã chia thành 3 folds thành công.
+2025-12-09 20:26:18,505 - HyperparameterTuning - INFO - === Bắt đầu tuning cho random_forest bằng random_search ===
+2025-12-09 20:26:18,506 - HyperparameterTuning - INFO - Metric tối ưu: f1
+2025-12-09 20:26:18,507 - HyperparameterTuning - INFO - Tạo lưới các siêu tham số cho mô hình: random_forest
+2025-12-09 20:26:18,508 - HyperparameterTuning - INFO - Đang chạy fit()... Quá trình này có thể mất chút thời gian, vui lòng chờ...
+2025-12-09 20:30:40,117 - HyperparameterTuning - INFO - Tuning hoàn tất cho random_forest.
+2025-12-09 20:30:40,118 - HyperparameterTuning - INFO - Điểm tốt nhất (f1): 0.7985
+2025-12-09 20:30:40,119 - HyperparameterTuning - INFO - Bộ tham số tốt nhất: {'n_estimators': 100, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_depth': 10}
+2025-12-09 20:30:40,120 - ModelTrainer - INFO - Đang khởi tạo mô hình: random_forest
+2025-12-09 20:30:52,154 - ModelTrainer - INFO - Đã lưu model: RESULT\random_forest.pkl
+2025-12-09 20:30:52,663 - ModelEvaluator - INFO - Tính toán metrics...
+2025-12-09 20:30:52,706 - AutoML Pipeline - INFO - Kết quả random_forest: {'mean_accuracy': np.float64(0.8118184848340555), 'mean_precision': np.float64(0.9671769748928353), 'mean_recall': np.float64(0.6818927553751835), 'mean_f1_score': np.float64(0.7998581991289375)}
+2025-12-09 20:30:52,707 - Visualizer - INFO - Đang vẽ Confusion Matrix
+2025-12-09 20:30:53,492 - Visualizer - INFO - Đã lưu ảnh confusion_matrix_random_forest.png
+2025-12-09 20:30:53,520 - Visualizer - INFO - Đang vẽ ROC Curve
+2025-12-09 20:30:54,510 - Visualizer - INFO - Đã lưu ảnh roc_curve_random_forest.png
+2025-12-09 20:30:54,536 - AutoML Pipeline - INFO - 
 ==================== PROCESSING MODEL: XGBOOST ====================
-2025-12-09 19:16:49,991 - DataSplitter - INFO - Bắt đầu chia dữ liệu với KFold (n_splits=3).
-2025-12-09 19:16:50,090 - DataSplitter - INFO - Đã chia thành 3 folds thành công.
-2025-12-09 19:16:50,092 - HyperparameterTuning - INFO - === Bắt đầu tuning cho xgboost bằng random_search ===
-2025-12-09 19:16:50,094 - HyperparameterTuning - INFO - Metric tối ưu: f1
-2025-12-09 19:16:50,094 - HyperparameterTuning - INFO - Tạo lưới các siêu tham số cho mô hình: xgboost
-2025-12-09 19:16:50,095 - HyperparameterTuning - INFO - Đang chạy fit()... Quá trình này có thể mất chút thời gian, vui lòng chờ...
-2025-12-09 19:17:35,218 - HyperparameterTuning - INFO - Tuning hoàn tất cho xgboost.
-2025-12-09 19:17:35,219 - HyperparameterTuning - INFO - Điểm tốt nhất (f1): 0.7992
-2025-12-09 19:17:35,219 - HyperparameterTuning - INFO - Bộ tham số tốt nhất: {'subsample': 0.8, 'n_estimators': 100, 'max_depth': 5, 'learning_rate': 0.2, 'colsample_bytree': 0.8}
-2025-12-09 19:17:35,222 - ModelTrainer - INFO - Đang khởi tạo mô hình: xgboost
-2025-12-09 19:17:35,679 - ModelTrainer - INFO - Đã lưu model: RESULT\xgboost.pkl
-2025-12-09 19:17:35,685 - ModelEvaluator - INFO - Tính toán metrics...
-2025-12-09 19:17:35,702 - AutoML Pipeline - INFO - Kết quả xgboost: {'mean_accuracy': np.float64(0.8113899338126755), 'mean_precision': np.float64(0.9649743714913351), 'mean_recall': np.float64(0.6827562386667818), 'mean_f1_score': np.float64(0.7996965865992415)}
-2025-12-09 19:17:35,706 - Visualizer - INFO - Đang vẽ Confusion Matrix
-2025-12-09 19:17:35,924 - Visualizer - INFO - Đã lưu ảnh confusion_matrix_xgboost.png
-2025-12-09 19:17:35,931 - Visualizer - INFO - Đang vẽ ROC Curve
-2025-12-09 19:17:36,117 - Visualizer - INFO - Đã lưu ảnh roc_curve_xgboost.png
-2025-12-09 19:17:36,130 - AutoML Pipeline - INFO - 
+2025-12-09 20:30:54,544 - DataSplitter - INFO - Bắt đầu chia dữ liệu với KFold (n_splits=3).
+2025-12-09 20:30:54,562 - DataSplitter - INFO - Đã chia thành 3 folds thành công.
+2025-12-09 20:30:54,564 - HyperparameterTuning - INFO - === Bắt đầu tuning cho xgboost bằng random_search ===
+2025-12-09 20:30:54,564 - HyperparameterTuning - INFO - Metric tối ưu: f1
+2025-12-09 20:30:54,565 - HyperparameterTuning - INFO - Tạo lưới các siêu tham số cho mô hình: xgboost
+2025-12-09 20:30:54,566 - HyperparameterTuning - INFO - Đang chạy fit()... Quá trình này có thể mất chút thời gian, vui lòng chờ...
+2025-12-09 20:32:36,729 - HyperparameterTuning - INFO - Tuning hoàn tất cho xgboost.
+2025-12-09 20:32:36,730 - HyperparameterTuning - INFO - Điểm tốt nhất (f1): 0.7992
+2025-12-09 20:32:36,731 - HyperparameterTuning - INFO - Bộ tham số tốt nhất: {'subsample': 0.8, 'n_estimators': 100, 'max_depth': 5, 'learning_rate': 0.2, 'colsample_bytree': 0.8}
+2025-12-09 20:32:36,737 - ModelTrainer - INFO - Đang khởi tạo mô hình: xgboost
+2025-12-09 20:32:37,639 - ModelTrainer - INFO - Đã lưu model: RESULT\xgboost.pkl
+2025-12-09 20:32:37,659 - ModelEvaluator - INFO - Tính toán metrics...
+2025-12-09 20:32:37,708 - AutoML Pipeline - INFO - Kết quả xgboost: {'mean_accuracy': np.float64(0.8113899338126755), 'mean_precision': np.float64(0.9649743714913351), 'mean_recall': np.float64(0.6827562386667818), 'mean_f1_score': np.float64(0.7996965865992415)}
+2025-12-09 20:32:37,716 - Visualizer - INFO - Đang vẽ Confusion Matrix
+2025-12-09 20:32:38,419 - Visualizer - INFO - Đã lưu ảnh confusion_matrix_xgboost.png
+2025-12-09 20:32:38,442 - Visualizer - INFO - Đang vẽ ROC Curve
+2025-12-09 20:32:38,967 - Visualizer - INFO - Đã lưu ảnh roc_curve_xgboost.png
+2025-12-09 20:32:38,989 - AutoML Pipeline - INFO - 
 ==================== PROCESSING MODEL: KNN ====================
-2025-12-09 19:17:36,134 - DataSplitter - INFO - Bắt đầu chia dữ liệu với KFold (n_splits=3).
-2025-12-09 19:17:36,143 - DataSplitter - INFO - Đã chia thành 3 folds thành công.
-2025-12-09 19:17:36,144 - HyperparameterTuning - INFO - === Bắt đầu tuning cho knn bằng random_search ===
-2025-12-09 19:17:36,144 - HyperparameterTuning - INFO - Metric tối ưu: f1
-2025-12-09 19:17:36,144 - HyperparameterTuning - INFO - Tạo lưới các siêu tham số cho mô hình: knn
-2025-12-09 19:17:36,145 - HyperparameterTuning - INFO - Đang chạy fit()... Quá trình này có thể mất chút thời gian, vui lòng chờ...
-2025-12-09 19:22:02,758 - HyperparameterTuning - INFO - Tuning hoàn tất cho knn.
-2025-12-09 19:22:02,759 - HyperparameterTuning - INFO - Điểm tốt nhất (f1): 0.7409
-2025-12-09 19:22:02,760 - HyperparameterTuning - INFO - Bộ tham số tốt nhất: {'weights': 'distance', 'p': 1, 'n_neighbors': 11}
-2025-12-09 19:22:02,760 - ModelTrainer - INFO - Đang khởi tạo mô hình: knn
-2025-12-09 19:22:03,312 - ModelTrainer - INFO - Đã lưu model: RESULT\knn.pkl
-2025-12-09 19:22:11,909 - ModelEvaluator - INFO - Tính toán metrics...
-2025-12-09 19:22:11,925 - AutoML Pipeline - INFO - Kết quả knn: {'mean_accuracy': np.float64(0.7475358316270654), 'mean_precision': np.float64(0.8131670822942644), 'mean_recall': np.float64(0.7039115793109403), 'mean_f1_score': np.float64(0.7546052022586318)}
-2025-12-09 19:22:11,926 - Visualizer - INFO - Đang vẽ Confusion Matrix
-2025-12-09 19:22:12,171 - Visualizer - INFO - Đã lưu ảnh confusion_matrix_knn.png
-2025-12-09 19:22:12,181 - Visualizer - INFO - Đang vẽ ROC Curve
-2025-12-09 19:22:19,958 - Visualizer - INFO - Đã lưu ảnh roc_curve_knn.png
-2025-12-09 19:22:19,967 - AutoML Pipeline - INFO - 
+2025-12-09 20:32:38,998 - DataSplitter - INFO - Bắt đầu chia dữ liệu với KFold (n_splits=3).
+2025-12-09 20:32:39,016 - DataSplitter - INFO - Đã chia thành 3 folds thành công.
+2025-12-09 20:32:39,016 - HyperparameterTuning - INFO - === Bắt đầu tuning cho knn bằng random_search ===
+2025-12-09 20:32:39,017 - HyperparameterTuning - INFO - Metric tối ưu: f1
+2025-12-09 20:32:39,017 - HyperparameterTuning - INFO - Tạo lưới các siêu tham số cho mô hình: knn
+2025-12-09 20:32:39,017 - HyperparameterTuning - INFO - Đang chạy fit()... Quá trình này có thể mất chút thời gian, vui lòng chờ...
+2025-12-09 20:41:15,901 - HyperparameterTuning - INFO - Tuning hoàn tất cho knn.
+2025-12-09 20:41:15,902 - HyperparameterTuning - INFO - Điểm tốt nhất (f1): 0.7409
+2025-12-09 20:41:15,902 - HyperparameterTuning - INFO - Bộ tham số tốt nhất: {'weights': 'distance', 'p': 1, 'n_neighbors': 11}
+2025-12-09 20:41:15,903 - ModelTrainer - INFO - Đang khởi tạo mô hình: knn
+2025-12-09 20:41:17,122 - ModelTrainer - INFO - Đã lưu model: RESULT\knn.pkl
+2025-12-09 20:41:39,226 - ModelEvaluator - INFO - Tính toán metrics...
+2025-12-09 20:41:39,271 - AutoML Pipeline - INFO - Kết quả knn: {'mean_accuracy': np.float64(0.7475358316270654), 'mean_precision': np.float64(0.8131670822942644), 'mean_recall': np.float64(0.7039115793109403), 'mean_f1_score': np.float64(0.7546052022586318)}
+2025-12-09 20:41:39,273 - Visualizer - INFO - Đang vẽ Confusion Matrix
+2025-12-09 20:41:41,130 - Visualizer - INFO - Đã lưu ảnh confusion_matrix_knn.png
+2025-12-09 20:41:41,155 - Visualizer - INFO - Đang vẽ ROC Curve
+2025-12-09 20:42:03,001 - Visualizer - INFO - Đã lưu ảnh roc_curve_knn.png
+2025-12-09 20:42:03,024 - AutoML Pipeline - INFO - 
 >>> STEP: TẠO BÁO CÁO TỔNG HỢP
-2025-12-09 19:22:19,977 - ReportModel - INFO - 
+2025-12-09 20:42:03,037 - ReportModel - INFO - 
 ================================================================================
                         BẢNG XẾP HẠNG HIỆU SUẤT MÔ HÌNH                         
 ================================================================================
@@ -217,5 +217,5 @@ knn                       0.747536        0.813167     0.703912       0.754605
 
 >>> CHAMPION MODEL: RANDOM_FOREST
 >>> mean_f1_score: 0.7999
-2025-12-09 19:22:19,979 - ReportModel - INFO - Đã lưu báo cáo tổng hợp tại: evaluation_report.txt
-2025-12-09 19:22:19,979 - AutoML Pipeline - INFO - === HOÀN TẤT AUTOML PIPELINE ===
+2025-12-09 20:42:03,039 - ReportModel - INFO - Đã lưu báo cáo tổng hợp tại: evaluation_report.txt
+2025-12-09 20:42:03,040 - AutoML Pipeline - INFO - === HOÀN TẤT AUTOML PIPELINE ===

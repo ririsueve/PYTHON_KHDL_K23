@@ -51,7 +51,7 @@ class ReportModel:
     """
     Lưu các chỉ số đánh giá mô hình vào file txt
     """
-    def __init__(self, file_name = "evaluation_report.txt", save_dir="RESULT"):
+    def __init__(self, file_name = "evaluation_report.txt"):
         """
         Khởi tạo ReportModel với tên file báo cáo.
 
@@ -59,7 +59,6 @@ class ReportModel:
         file_name (str): Tên file text để lưu báo cáo.
         """
         self.file_name = file_name
-        self.save_dir = save_dir
         self.logger = logging.getLogger(self.__class__.__name__)
 
     def save_comparision(self, all_models_metrics):
@@ -98,8 +97,7 @@ class ReportModel:
 
         # 4. Lưu vào file
         try:
-            full_path = os.path.join(self.save_dir, self.file_name)
-            with open(full_path, "w", encoding='utf-8') as f:
+            with open(self.file_name, "w", encoding='utf-8') as f:
                 f.write(full_text)
             self.logger.info(f"Đã lưu báo cáo tổng hợp tại: {self.file_name}")
         except Exception as e:
