@@ -38,7 +38,7 @@ PYTHON_KHDL_K23/
 
 3. Chạy lệnh cài đặt: pip install -r requirements.txt
    
-4. Chạy lệnh chương trình chính: python main.py
+4. Chạy lệnh chương trình chính: python CODE/main.py
 
 ## CÁC TÍNH NĂNG NỔI BẬT:
 
@@ -69,6 +69,7 @@ PYTHON_KHDL_K23/
 
 
    
+
 
 
 
