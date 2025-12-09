@@ -81,7 +81,7 @@ class AutoMLPipeline:
                 splitter = DataSplitter(X_tune)
                 folds = splitter.kfold_split_data(n_splits=3) # Tuning nhanh với 3 fold
 
-                tuner = HyperparameterTuning(tuning_method="grid_search", scoring="f1")
+                tuner = HyperparameterTuning(tuning_method=self.tuning_method, scoring="f1")
                 tuning_res = tuner.tune_hyperparameters(X_tune, y_tune, folds, model_name)
 
                 # Lấy kết quả trả về từ tuner
@@ -90,7 +90,7 @@ class AutoMLPipeline:
                 # B. Final Training (Train lại trên toàn bộ tập Train với Best Params)
                 trainer = ModelTrainer(model_name, **best_params)
                 trainer.train_model(X_train_selected, y_train)
-                trainer.save_model("")
+                trainer.save_model("RESULT")
 
                 # C. Prediction (Dự đoán trên tập Test độc lập)
                 y_pred = trainer.predict_y(X_test_selected)
@@ -117,6 +117,6 @@ class AutoMLPipeline:
             
         # 4. Final Report (Tổng hợp so sánh)
         self.logger.info("\n>>> STEP: TẠO BÁO CÁO TỔNG HỢP")
-        reporter = ReportModel("evaluation_report.txt")
+        reporter = ReportModel("evaluation_report.txt", save_dir="RESULT")
         reporter.save_comparision(self.all_results_metrics)
         self.logger.info("=== HOÀN TẤT AUTOML PIPELINE ===")

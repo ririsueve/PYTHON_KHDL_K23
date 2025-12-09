@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import logging
+import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, roc_curve, auc
@@ -50,7 +51,7 @@ class ReportModel:
     """
     Lưu các chỉ số đánh giá mô hình vào file txt
     """
-    def __init__(self, file_name = "evaluation_report.txt"):
+    def __init__(self, file_name = "evaluation_report.txt", save_dir="RESULT"):
         """
         Khởi tạo ReportModel với tên file báo cáo.
 
@@ -58,6 +59,7 @@ class ReportModel:
         file_name (str): Tên file text để lưu báo cáo.
         """
         self.file_name = file_name
+        self.save_dir = save_dir
         self.logger = logging.getLogger(self.__class__.__name__)
 
     def save_comparision(self, all_models_metrics):
@@ -96,7 +98,8 @@ class ReportModel:
 
         # 4. Lưu vào file
         try:
-            with open(self.file_name, "w", encoding='utf-8') as f:
+            full_path = os.path.join(self.save_dir, self.file_name)
+            with open(full_path, "w", encoding='utf-8') as f:
                 f.write(full_text)
             self.logger.info(f"Đã lưu báo cáo tổng hợp tại: {self.file_name}")
         except Exception as e:
@@ -106,16 +109,18 @@ class Visualizer:
     """
     Vẽ các biểu đồ để so sánh giữa các mô hình.
     """
-    def __init__(self, cv_results, model_name_prefix=""):
+    def __init__(self, cv_results, model_name_prefix="", save_dir="RESULT"):
         """
         Khởi tạo Visualize với kết quả từ cross-validation.
 
         Args:
         cv_results: tuple (mô hình, X_test, y_test, y_pred) cho mỗi fold.
         model_name_prefix (str): Prefix để thêm vào tên mô hình.
+        save_dir: thư mục lưu biểu đồ.
         """
         self.cv_results = cv_results
         self.prefix = model_name_prefix
+        self.save_dir = save_dir
         self.logger = logging.getLogger(self.__class__.__name__)
 
     def plot_all(self):
@@ -151,7 +156,9 @@ class Visualizer:
 
             # 4. Lưu hình ảnh
             filename = f"confusion_matrix_{self.prefix}.png"
-            plt.savefig(filename)
+            full_path = os.path.join(self.save_dir, filename)
+
+            plt.savefig(full_path)
             self.logger.info(f"Đã lưu ảnh confusion_matrix_{self.prefix}.png")
 
             # plt.show()
@@ -201,7 +208,9 @@ class Visualizer:
 
             # Lưu hình ảnh
             filename = f"roc_{self.prefix}.png"
-            plt.savefig(filename)
+            full_path = os.path.join(self.save_dir, filename)
+
+            plt.savefig(full_path)
             # plt.show()
             self.logger.info(f"Đã lưu ảnh roc_curve_{self.prefix}.png")
             plt.close()

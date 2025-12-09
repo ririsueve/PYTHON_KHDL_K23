@@ -1,5 +1,6 @@
 import logging
 import joblib
+import os
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import LinearSVC
 from sklearn.tree import DecisionTreeClassifier
@@ -107,7 +108,7 @@ class ModelTrainer:
             raise ValueError("Mô hình chưa được xây dựng thành công hoặc không hợp lệ.")
         return self.model.predict(X_test)
     
-    def save_model(self, folder_path=""): # Mặc định là rỗng để lưu ngay thư mục gốc
+    def save_model(self, save_dir=""): # Mặc định là rỗng để lưu ngay thư mục gốc
         """
         Lưu model ra file .pkl
         """
@@ -115,8 +116,7 @@ class ModelTrainer:
             return
 
         # Nếu folder_path rỗng, lưu ngay tại chỗ. Nếu có, thêm dấu gạch chéo
-        path_prefix = f"{folder_path}/" if folder_path else ""
-        file_path = f"{path_prefix}{self.model_name}.pkl"
+        file_path = os.path.join(save_dir, f"{self.model_name}.pkl")
 
         # Lưu file
         joblib.dump(self.model, file_path)

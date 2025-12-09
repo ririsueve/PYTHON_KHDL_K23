@@ -18,7 +18,7 @@ my_range_rules = {
     'ANNUAL_MILEAGE': (0, None),
     'PAST_ACCIDENTS': (0, None)
 }
-cols_to_drop = ['ID','POSTAL_CODE','DUIS','SPEEDING_VIOLATIONS','PAST_ACCIDENTS']
+cols_to_drop = ['ID','POSTAL_CODE','DUIS','SPEEDING_VIOLATIONS']
 max_drop_ratio = 0.05
 imputation_strategy = 'auto'  # 'ffill', 'bfill', 'auto'
 fuzzy_threshold = 90
