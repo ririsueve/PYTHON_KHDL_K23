@@ -26,7 +26,7 @@ def main():
     )
 
     data_pipeline = DataPreparationPipeline(
-        file_path='DATA_RISK_CLASSIFY.csv',  # Đảm bảo file train.csv nằm cùng thư mục
+        file_path='data.csv',  # Đảm bảo file train.csv nằm cùng thư mục
         cleaner=cleaner,
         featuring=engineering,
         transformer=transformer,
