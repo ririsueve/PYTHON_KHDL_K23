@@ -117,6 +117,6 @@ class AutoMLPipeline:
             
         # 4. Final Report (Tổng hợp so sánh)
         self.logger.info("\n>>> STEP: TẠO BÁO CÁO TỔNG HỢP")
-        reporter = ReportModel("evaluation_report.txt", save_dir="RESULT")
+        reporter = ReportModel("evaluation_report.txt")
         reporter.save_comparision(self.all_results_metrics)
         self.logger.info("=== HOÀN TẤT AUTOML PIPELINE ===")
