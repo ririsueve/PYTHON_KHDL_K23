@@ -341,39 +341,13 @@ class FeatureEngineer(BaseEstimator, TransformerMixin):
         df = X.copy()
 
         # Gọi lần lượt các hàm tính toán con
-        df = self._create_risk_features(df)
         df = self._create_family_features(df)
 
         return df
 
     # =========================================================================
     # CÁC HÀM TÍNH TOÁN CHI TIẾT (HELPER METHODS)
-    # =========================================================================
-
-    def _create_risk_features(self, df):
-        """Hàm 1: Tính toán các chỉ số rủi ro hành vi"""
-        # Danh sách cột cần dùng
-        risk_cols = ['DUIS', 'PAST_ACCIDENTS', 'SPEEDING_VIOLATIONS']
-
-        # Kiểm tra xem có đủ cột không
-        if all(c in df.columns for c in risk_cols):
-            # Fill 0 tạm thời để tính toán, đảm bảo không cộng với NaN
-            # Ép kiểu numeric để tránh lỗi nếu dữ liệu đang là string
-            temp = df[risk_cols].apply(pd.to_numeric, errors='coerce').fillna(0)
-
-            # 1.1 Tổng số sự cố
-            df['TOTAL_INCIDENTS'] = temp.sum(axis=1)
-
-            # 1.2 Điểm rủi ro trọng số (5-3-1)
-            # Công thức: (DUI*5) + (Accidents*3) + (Speeding*1)
-            df['WEIGHTED_RISK_SCORE'] = (temp['DUIS'] * 5) + \
-                                        (temp['PAST_ACCIDENTS'] * 3) + \
-                                        (temp['SPEEDING_VIOLATIONS'] * 1)
-            self.logger.info("   -> Đã tạo feature: TOTAL_INCIDENTS, WEIGHTED_RISK_SCORE")
-        else:
-            self.logger.info(f"   [Skip] Không đủ cột để tạo Risk Features. Cần: {risk_cols}")
-        return df
-
+    # ========================================================================
     def _create_family_features(self, df):
         """Hàm 2: Tính toán chỉ số ổn định gia đình"""
         fam_cols = ['MARRIED', 'CHILDREN', 'VEHICLE_OWNERSHIP']
