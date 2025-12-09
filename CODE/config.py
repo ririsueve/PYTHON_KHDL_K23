@@ -16,24 +16,21 @@ my_range_rules = {
     'MARRIED': (0, 1),
     'CHILDREN': (0, 1),
     'ANNUAL_MILEAGE': (0, None),
-    #'SPEEDING_VIOLATIONS': (0, None),
-    #'DUIS': (0, None),
-    #'PAST_ACCIDENTS': (0, None)
+    'PAST_ACCIDENTS': (0, None)
 }
 cols_to_drop = ['ID','POSTAL_CODE','DUIS','SPEEDING_VIOLATIONS','PAST_ACCIDENTS']
+max_drop_ratio = 0.05
+imputation_strategy = 'auto'  # 'ffill', 'bfill', 'auto'
+fuzzy_threshold = 90
 
 # 3. Tham số cho bước transformation
 my_outlier_strategies = {
     # Cột gốc
     'ANNUAL_MILEAGE': 'log',
-    #'SPEEDING_VIOLATIONS': 'log',
-    #'PAST_ACCIDENTS': 'log',
-    #'DUIS': 'log',
+    'PAST_ACCIDENTS': 'log',
     'CREDIT_SCORE': 'capping',
     'CHILDREN': None, 'MARRIED': None, 'VEHICLE_OWNERSHIP': None,
-    #'TOTAL_INCIDENTS': 'log',
-    #'WEIGHTED_RISK_SCORE': 'log',
-    #'FAMILY_STABILITY': None,
+    'FAMILY_STABILITY': 'log',
 }
 
 # 4. Map thứ tự để biến chữ thành số
@@ -46,5 +43,5 @@ my_ordinal_mappings = {
     'GENDER': {'female': 0, 'male': 1}
 }
 nominal_columns = ['TYPE_OF_VEHICLE']
-
-
+ignore_cols= ['OUTCOME']
+scaling_strategy='minmax' # 'standard' or 'minmax' or 'auto' or 'robust'
