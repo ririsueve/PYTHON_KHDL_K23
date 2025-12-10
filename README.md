@@ -44,13 +44,17 @@ PYTHON_KHDL_K23/
 
 ## TÙY CHỈNH THAM SỐ TRUYỀN VÀO TRONG TERMINAL:
 
-Mặc định: tuning_method = "random_search", feature_method = "rfe", n_features = 15
-    python CODE/main.py
+      Mặc định: tuning_method = "random_search", feature_method = "rfe", n_features = 15
+          python CODE/main.py
+    
 Có thể lựa chọn phương pháp tuning, phương pháp lựa chọn đặc trưng, số đặc trưng cần giữ bằng cách gọi:
+
     Mặc định code đang để là 15, muốn giảm xuống 10 thì gõ:
         python CODE/main.py --n_features 10
+        
     Mặc định là rfe, muốn đổi sang forward (chọn tiến) hoặc backward (chọn lùi):
         python CODE/main.py --feature_method forward
+        
     Mặc định là random_search, muốn đổi sang grid_search hoặc default:
         python CODE/main.py --tuning grid_search hoặc
         python CODE/main.py --tuning default
@@ -92,6 +96,8 @@ Sau khi cài đặt:
 
 
    
+
+
 
 
 
