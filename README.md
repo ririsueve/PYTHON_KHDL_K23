@@ -1,4 +1,4 @@
-## GIỚI THIỆU VỀ ĐỒ ÁN CỦA NHÓM:
+## GIỚI THIỆU VỀ ĐỒ ÁN CỦA NHÓM 10:
 
 Đây là hệ thống Machine Learning tự động (AutoML Pipeline) được thiết kế theo cấu trúc Modular, giúp tự động hóa quy trình từ xử lý dữ liệu, lựa chọn đặc trưng, tinh chỉnh tham số (Hyperparameter Tuning) đến huấn luyện và đánh giá nhiều mô hình khác nhau.
 
@@ -116,6 +116,7 @@ Sau khi cài đặt:
 
 
    
+
 
 
 
