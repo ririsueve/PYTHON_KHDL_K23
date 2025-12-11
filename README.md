@@ -21,7 +21,7 @@ PYTHON_KHDL_K23/
 │   └── main.py               # FILE CHẠY CHÍNH
 │
 ├── 📂 DATA/                   # THƯ MỤC DỮ LIỆU
-│   ├── DATA_RISK_CLASSIFY.csv  # (File gốc)
+│   ├── data.csv  # (File gốc)
 │   ├── final_train_data.csv    # (File huấn luyện lưu tự động sau khi chạy code)
 │   └── final_test_data.csv     # (File kiểm nghiệm lưu tự động sau khi chạy code)
 │
@@ -83,7 +83,7 @@ Nhóm tham số này điều khiển Class `DataTransformer` và `FeatureEnginee
 ## KẾT QUẢ CÀI ĐẶT:
 
 Sau khi cài đặt:
-- Các mô hình được lưu dưới dạng (.pkl) và các biểu đổ confusion matrix và ROC curve (.png) được lưu trong thư mục RESULT.
+- Các mô hình được lưu dưới dạng (.pkl) và các biểu đồ confusion matrix và ROC curve (.png) được lưu trong thư mục RESULT.
 - Một file logging có tên automl_run.log được lưu trong thư mục chính.
 - Một file txt lưu các chỉ số của từng mô hình có tên evaluation_report.txt được lưu trong thư mục chính.
 
@@ -116,6 +116,7 @@ Sau khi cài đặt:
 
 
    
+
 
 
 
