@@ -58,8 +58,28 @@ Có thể lựa chọn phương pháp tuning, phương pháp lựa chọn đặc
     Mặc định là random_search, muốn đổi sang grid_search hoặc default:
         python CODE/main.py --tuning grid_search hoặc
         python CODE/main.py --tuning default
+## Tùy chỉnh tham số để tiền xử lí dữ liệu : config.py
+### Tham số cho làm sạch (Cleaning)
+Nhóm tham số này điều khiển Class `DataCleaner` với vai trò cốt lõi là **đảm bảo tính hợp lệ của dữ liệu thô và xử lý giá trị thiếu**.
+| Tham số | Vai trò & Mục đích (Rút gọn) | Cách điều chỉnh (Ngắn gọn) |
+| :--- | :--- | :--- |
+| **`my_golden_specs`** | **Xác định giá trị CHUẨN** cho các cột phân loại (Category) để bắt lỗi nhập liệu. | Cập nhật danh sách giá trị chuẩn (ví dụ: `['male', 'female']`). |
+| **`my_range_rules`** | **Giới hạn Min/Max hợp lý** cho các cột số (Numerical). | Thay đổi giới hạn số học (`(min, max)`) cho cột tương ứng. |
+| **`imputation_strategy`** | **Chiến lược thay thế** cho các giá trị thiếu (NaN). | Chọn `'auto'`, `'ffill'`, `'bfill'`|
+| **`cols_to_drop`** | Danh sách các cột **cần loại bỏ** (ví dụ: ID, cột rò rỉ). | Thêm hoặc xóa tên cột không cần thiết. |
+| **`max_drop_ratio`** | **Ngưỡng an toàn** để xóa dòng (tối đa bao nhiêu % dòng bị lỗi có thể xóa). | Tăng/Giảm tỷ lệ (ví dụ: `0.05` = 5%) tùy theo độ quan trọng của dữ liệu. |
+| **`fuzzy_threshold`** | **Ngưỡng sửa lỗi chính tả** tự động (độ tương đồng). | Điều chỉnh độ nghiêm ngặt khi sửa lỗi nhập liệu (thường là 80-95). |
 
+### Tham số cho tranformation 
+Nhóm tham số này điều khiển Class `DataTransformer` và `FeatureEngineer`, tập trung vào việc **Mã hóa, Xử lý Outlier và Chuẩn hóa Feature** cho mô hình.
 
+| Tham số | Vai trò & Mục đích (Rút gọn) | Cách điều chỉnh (Ngắn gọn) |
+| :--- | :--- | :--- |
+| **`my_outlier_strategies`** | **Phương pháp điều chỉnh** cho các cột có phân phối lệch (Outlier). | Thay đổi loại chuyển đổi: `'log'`, `'capping'`, ` `None`. |
+| **`my_ordinal_mappings`** | **Ánh xạ thứ tự** (Ranking) các cột Category thành số (Encoding). | Điều chỉnh lại thứ tự hoặc giá trị số của mapping. |
+| **`nominal_columns`** | Danh sách các cột **không có thứ tự** (dùng One-Hot Encoding hoặc tương đương). | Thêm hoặc xóa các cột Nominal cần mã hóa. |
+| **`scaling_strategy`** | **Thuật toán chuẩn hóa thang đo** (ví dụ: đưa về [0, 1]). | Chọn giữa `auto`,`'minmax'`, `'standard'`, hoặc `'robust'`. |
+| **`ignore_cols`** | Các cột **KHÔNG** được áp dụng phép biến đổi (chủ yếu là cột Target). | Đảm bảo cột Target (`OUTCOME`) nằm trong danh sách này. |
 ## KẾT QUẢ CÀI ĐẶT:
 
 Sau khi cài đặt:
@@ -96,6 +116,7 @@ Sau khi cài đặt:
 
 
    
+
 
 
 
