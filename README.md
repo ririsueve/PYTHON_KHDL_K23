@@ -8,6 +8,10 @@ Mục tiêu chính: Dự đoán rủi ro (Risk Prediction) dựa trên dữ li�
 ```text
 PYTHON_KHDL_K23/
 │
+├── 📂 Báo cáo đồ án_khai phá dữ liệu/       # THƯ MỤC LƯU File báo cáo nhóm và phần EDA
+│   ├── BÁO CÁO ĐỒ ÁN PYTHON - NHOM10.pdf    # File pdf báo cáo của nhóm
+│   └── EDA.ipynb                            # File code phần EDA
+│
 ├── 📂 CODE/                   # THƯ MỤC MÃ NGUỒN
 │   ├── 📂 modules/            # Các module chức năng
 │   │   ├── __init__.py
@@ -116,6 +120,7 @@ Sau khi cài đặt:
 
 
    
+
 
 
 
