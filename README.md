@@ -42,7 +42,7 @@ PYTHON_KHDL_K23/
    
 4. Chạy lệnh chương trình chính: python CODE/main.py
 
-## TÙY CHỈNH THAM SỐ TRUYỀN VÀO TRONG TERMINAL:
+## TÙY CHỈNH THAM SỐ TRUYỀN VÀO TRONG TERMINA CHO HÀM MAIN:
 
       Mặc định: tuning_method = "random_search", feature_method = "rfe", n_features = 15
           python CODE/main.py
@@ -116,6 +116,7 @@ Sau khi cài đặt:
 
 
    
+
 
 
 
