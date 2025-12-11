@@ -58,7 +58,7 @@ Có thể lựa chọn phương pháp tuning, phương pháp lựa chọn đặc
     Mặc định là random_search, muốn đổi sang grid_search hoặc default:
         python CODE/main.py --tuning grid_search hoặc
         python CODE/main.py --tuning default
-## Tùy chỉnh tham số để tiền xử lí dữ liệu : config.py
+## TÙY CHỈNH THAM SỐ CHO TIỀN XỬ LÍ DỮ LIỆU : config.py
 ### Tham số cho làm sạch (Cleaning)
 Nhóm tham số này điều khiển Class `DataCleaner` với vai trò cốt lõi là **đảm bảo tính hợp lệ của dữ liệu thô và xử lý giá trị thiếu**.
 | Tham số | Vai trò & Mục đích (Rút gọn) | Cách điều chỉnh (Ngắn gọn) |
@@ -116,6 +116,7 @@ Sau khi cài đặt:
 
 
    
+
 
 
 
